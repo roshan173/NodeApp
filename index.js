@@ -25,6 +25,7 @@ let notes = [
 const app = express()
 app.use(cors())
 app.use(express.json())
+app.use(express.static('build'))
 
 const requestLogger = (request, response, next) => {
   console.log('Method:', request.method)
@@ -71,7 +72,7 @@ app.post('/api/notes', (req, res) => {
         date: new Date(),
         id: generateId()
     }
-    notes.concat(note)
+    notes = notes.concat(note)
     res.json(note)
 })
 
