@@ -8,9 +8,10 @@
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "rm -rf build && cd ../part2a/ && npm run build --prod && cp -r build ../node",
-    "deploy": "git push npx heroku main",
+    "deploy": "git push heroku main",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
-    "logs:prod": "heroku logs --tail"
+    "logs:prod": "heroku logs --tail",
+    "lint": "eslint ."
   },
   "author": "Roshan Dewangan",
   "license": "MIT",
@@ -21,6 +22,7 @@
     "mongoose": "^6.0.11"
   },
   "devDependencies": {
+    "eslint": "^8.0.1",
     "nodemon": "^2.0.13"
   }
 }
